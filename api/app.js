@@ -7,16 +7,16 @@ const PORT = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Endpoint to handle POST requests
+// Endpoint to handle POST requests to /api/data
 app.post("/api/data", (req, res) => {
-  // Assuming the PHP script sends JSON data in the request body
-  const receivedData = req.body;
+  // Retrieve JSON data from request body
+  const jsonData = req.body;
 
-  // Do something with the received data
-  console.log("Received data:", receivedData);
+  // Log the JSON data to the console
+  console.log("Received JSON data:", jsonData);
 
-  // Respond with a success message
-  res.status(200).json({ message: "Data received successfully" });
+  // Send the JSON data back as a response
+  res.status(200).json(jsonData);
 });
 
 // Start the server
